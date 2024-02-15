@@ -62,7 +62,7 @@ export default function Experience() {
     )
 
     return (
-        <div id="experience-block" className="flex m-3 p-3 mt-5">
+        <div id="experience-block" className="flex m-5 p-5">
 
             <h2 className="flex flex-col justify-center items-center flex-1 m-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 <div>My Dev <div className="text-blue-600 dark:text-blue-500">Experience</div></div>

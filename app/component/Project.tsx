@@ -56,7 +56,7 @@ export default function Project() {
     )
 
     return (
-        <div id="experience-block" className="flex m-3 p-3 mt-5 bg-gray-900">
+        <div id="project-block" className="flex m-5 p-5 bg-gray-900">
             <div className="flex-1 flex flex-col gap-8 p-5">
                 <Projects />
             </div>
