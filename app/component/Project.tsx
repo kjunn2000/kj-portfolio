@@ -32,8 +32,8 @@ export default function Project() {
     )
 
     const Projects = () => (
-        projectData.map(project => (
-            <a href="#" className="flex rounded-lg shadow hover:bg-gray-800">
+        projectData.map((project, i) => (
+            <a key={`project-${i}`} href="#" className="flex rounded-lg shadow hover:bg-gray-800">
                 <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-60 md:rounded-none md:rounded-s-lg" src={project.imageUrl} alt="" />
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h5>

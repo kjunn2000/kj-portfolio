@@ -54,8 +54,8 @@ export default function Footer() {
                     </span>
                     <div className="flex flex-col gap-4 mt-4 sm:justify-center sm:mt-0">
                         {
-                            contactData.map(contact => (
-                                <div>
+                            contactData.map((contact, i) => (
+                                <div key={`contact-${i}`}>
                                     <a href={contact.redirectUrl} target="_blank" className="flex gap-4 text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                                         {contact.icon}
                                         <span className="sr-only">{contact.name}</span>
