@@ -33,7 +33,7 @@ export default function Project() {
 
     const Projects = () => (
         projectData.map(project => (
-            <a href="#" className="flex rounded-lg shadow hover:bg-gray-900">
+            <a href="#" className="flex rounded-lg shadow hover:bg-gray-800">
                 <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-60 md:rounded-none md:rounded-s-lg" src={project.imageUrl} alt="" />
                 <div className="flex flex-col justify-between p-4 leading-normal">
                     <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h5>
@@ -56,7 +56,7 @@ export default function Project() {
     )
 
     return (
-        <div id="experience-block" className="flex m-3 p-3 mt-5">
+        <div id="experience-block" className="flex m-3 p-3 mt-5 bg-gray-900">
             <div className="flex-1 flex flex-col gap-8 p-5">
                 <Projects />
             </div>
