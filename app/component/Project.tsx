@@ -1,32 +1,66 @@
+import exp from "constants";
 import Image from "next/image";
 
-export default function Nav() {
-    return (
+interface Project {
+    name: string;
+    description: string;
+    imageUrl: string;
+    skillSet: string[];
+}
 
-        <nav className="bg-white border-gray-200 dark:bg-gray-900">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <Image src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">the K3</span>
-                </a>
-                <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Experience</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Project</a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                        </li>
-                    </ul>
+const projectData: Project[] = [
+    {
+        name: 'Straper : Online Collaboration Application',
+        description: 'Advanced online collaboration app facilitating team communication, project organization through a scrum board, and efficient bug tracking features for enhanced productivity.',
+        imageUrl: 'https://149842033.v2.pressablecdn.com/wp-content/uploads/2019/08/software-company-websites-templates-featured-image.jpg',
+        skillSet: ["Go", "Reactjs", "PostgreSQL"]
+    },
+    {
+        name: 'NewLiftThriftShop : Online Second Hand Shop',
+        description: 'A cloud-commerce app integrates AWS services for high availability, using AWS Beanstalk, S3, RDS. It employs microservices, AWS Lambda, CloudWatch, and X-Ray for monitoring and efficiency.',
+        imageUrl: 'https://149842033.v2.pressablecdn.com/wp-content/uploads/2019/08/applauz-software-website-template.jpg',
+        skillSet: ["Python", "AWS", "Node.js", "MSSQL"]
+    }
+]
+
+export default function Project() {
+
+    const Title = () => (
+        <h2 className="flex flex-col justify-center items-center flex-1 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            <div>My Software <div className="text-blue-600 dark:text-blue-500">Project</div></div>
+        </h2>
+    )
+
+    const Projects = () => (
+        projectData.map(project => (
+            <a href="#" className="flex rounded-lg shadow hover:bg-gray-900">
+                <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-60 md:rounded-none md:rounded-s-lg" src={project.imageUrl} alt="" />
+                <div className="flex flex-col justify-between p-4 leading-normal">
+                    <h5 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{project.name}</h5>
+                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{project.description}</p>
+                    <div>
+                        {project.skillSet.map(skill => (
+                            tag(skill)
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </a>
+        )
+        )
+    )
 
+    const tag = (tagName: String) => (
+        <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ms-3">
+            {tagName}
+        </span>
+    )
+
+    return (
+        <div id="experience-block" className="flex m-3 p-3 mt-5">
+            <div className="flex-1 flex flex-col gap-8 p-5">
+                <Projects />
+            </div>
+            <Title />
+        </div>
     );
 }
